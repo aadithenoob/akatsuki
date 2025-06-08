@@ -1,83 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <title>{% block title %}{% endblock %}</title>
+    <style>
+      .akatsuki_title_glow {
+        text-shadow: 0 0 6px #ff4b5c, 0 0 10px #b41232, 0 0 10px #dc143c;
+      }
 
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
-    crossorigin="anonymous"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-  />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap"
-    rel="stylesheet"
-  />
+      .akatsuki_title {
+        font-family: "Orbitron", sans-serif;
+        font-weight: 900;
+        letter-spacing: 0.2em;
+      }
 
-  <title>{% block title %}Home{% endblock %}</title>
-  <style>
-    body {
-      font-family: 'Orbitron', sans-serif;
+      .navbar_logo {
+        font-family: "Orbitron", sans-serif;
+        font-weight: 900;
+        letter-spacing: 0.01em;
+        font-size: 1.35rem;
+      }
+
+      .akatsuki_subtitle_glow {
+        text-shadow: 0 0 5px #b41232, 0 0 6px #dc143c, 0 0 9px #ff4b5c;
+      }
+
+      .akatsuki_subtitle {
+        font-family: "Orbitron", sans-serif;
+        color: #dc143c;
+        font-size: 1.3rem;
+        font-weight: 400;
+        letter-spacing: 0.2em;
+      }
+
+      .akatsuki-btn {
+        background-color: #e63946;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+        transition: 0.3s ease;
+      }
+
+      .akatsuki-btn:hover {
+        background-color: #d62828;
+      }
+
+      .akatsuki_kanji {
+        font-family: "Orbitron", sans-serif;
+        font-weight: 900;
+        font-size: 1.5rem;
+        color: #e63946;
+        text-shadow: 0 0 10px #e63946;
+      }
+
+      .akatsuki_logo {
+        font-family: "Orbitron", sans-serif;
+        font-weight: 900;
+        letter-spacing: 0.04em;
+        font-size: 1.5rem;
+      }
+
+      .discord_glow {
+        font-family: "Orbitron", sans-serif;
+        font-weight: 500;
+        letter-spacing: 0.1rem;
+        font-size: 1.1rem;
+        text-shadow: 0 0 2px #0f1c3f, 0 0 6px #1043b2, 0 0 10px #2563eb,
+          0 0 14px #3b82f6, 0 0 20px #60a5fa;
+      }
+
+      .discord-btn {
+        transition: all 0.3s ease;
+      }
+
+      .discord-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 60px rgba(37, 99, 235, 0.4);
+      }
+
+      .discord_btn_font {
+        font-family: "Orbitron", sans-serif;
+        font-weight: 900;
+        letter-spacing: 0.1rem;
+        font-size: 1.1rem;
+      }
+
+      .cloud-symbol {
+        font-size: 4rem;
+        color: #dc143c;
+        text-shadow: 0 0 20px rgba(220, 20, 60, 0.6);
+        animation: float 3s ease-in-out infinite;
     }
-  </style>
-</head>
-<body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/">AKATSUKI</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbar"
-        aria-controls="navbar"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
 
-      <div class="collapse navbar-collapse" id="navbar">
-        <div class="navbar-nav ms-auto">
-          {% if current_user.is_authenticated %}
-            <a class="nav-item nav-link" href="/">Home</a>
-            <a class="nav-item nav-link" href="/auth/logout">Logout</a>
-          {% else %}
-            <a class="nav-item nav-link" href="/auth/login">
-              <i class="fab fa-discord"></i> Login with Discord
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+  }
+
+      body {
+        font-family: "Orbitron", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-black">
+    <nav class="bg-#360202 border-b-4 border-red-600">
+      <div class="container mx-auto px-4">
+        <div class="flex items-center justify-between h-16">
+          <a href="/">
+            <span class="akatsuki_kanji">雲</span>
+            <span class="akatsuki_logo akatsuki_title_glow">AKATSUKI</span>
+          </a>
+
+          <button
+            class="md:hidden p-2 rounded-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500"
+            onclick="toggleMobileMenu()"
+          >
+            <i class="fas fa-bars"></i>
+          </button>
+
+          <div class="hidden md:flex space-x-4">
+            {% if current_user.is_authenticated %}
+            <a
+              href="/"
+              class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+              >HOME</a
+            >
+            <a
+              href="/auth/logout"
+              class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+              >LOGOUT</a
+            >
+            {% else %}
+            <a href="/auth/login" class="discord_glow">
+              <i class="fab fa-discord mr-2"></i>LOGIN WITH DISCORD
             </a>
+            {% endif %}
+          </div>
+        </div>
+
+        <div id="mobile-menu" class="md:hidden hidden pb-4">
+          {% if current_user.is_authenticated %}
+          <a
+            href="/"
+            class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+            >Home</a
+          >
+          <a
+            href="/auth/logout"
+            class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+            >Logout</a
+          >
+          {% else %}
+          <a
+            href="/auth/login"
+            class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+          >
+            <i class="fab fa-discord mr-2"></i>LOGIN WITH DISCORD
+          </a>
           {% endif %}
         </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 
-  {% with messages = get_flashed_messages(with_categories=true) %}
-    {% if messages %}
-      <div class="container mt-3">
-        {% for category, message in messages %}
-          <div class="alert alert-{{ 'danger' if category == 'error' else 'success' }} alert-dismissible fade show" role="alert">
-            {{ message }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
-        {% endfor %}
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+    messages %}
+    <div class="container mx-auto px-4 mt-4">
+      {% for category, message in messages %}
+      <div
+        class="relative mb-4 px-4 py-3 rounded-lg border {{ 'bg-red-50 border-red-200 text-red-700' if category == 'error' else 'bg-green-50 border-green-200 text-green-700' }}"
+      >
+        {{ message }}
+        <button
+          type="button"
+          class="absolute top-0 right-0 mt-3 mr-4 text-xl leading-none font-semibold opacity-50 hover:opacity-75"
+          onclick="this.parentElement.style.display='none'"
+        >
+          ×
+        </button>
       </div>
-    {% endif %}
-  {% endwith %}
+      {% endfor %}
+    </div>
+    {% endif %} {% endwith %}
 
-  <div class="container mt-4">
-    {% block content %}{% endblock %}
-  </div>
+    <div class="container mx-auto px-4 mt-8">
+      {% block content %}{% endblock %}
+    </div>
 
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
-    crossorigin="anonymous"
-  ></script>
-</body>
+    <script>
+      function toggleMobileMenu() {
+        const menu = document.getElementById("mobile-menu");
+        menu.classList.toggle("hidden");
+      }
+    </script>
+  </body>
 </html>

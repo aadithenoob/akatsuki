@@ -1,5 +1,12 @@
-{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
-%}
-<h1>AKATSUKI</h1>
-<h3>The Organization of Dawn</h3>
-{% if boolean == True %} BRUH {% endif %} {% endblock %}
+{% extends "base.html" %}
+{% block title %}Akatsuki - Home{% endblock %}
+
+{% block content %}
+<div class="h-screen flex justify-center text-center mt-32">
+  <div>
+    <div class="cloud-symbol">☁</div>
+    <h1 class="text-7xl font-extrabold akatsuki_title akatsuki_title_glow">AKATSUKI</h1>
+    <p class="akatsuki_subtitle akatsuki_subtitle_glow mt-3">THE ORGANIZATION OF DAWN</p>
+  </div>
+</div>
+{% endblock %}

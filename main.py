@@ -4,4 +4,4 @@ from flask import redirect, url_for
 app = create_app()
 
 if __name__ == "__main__":
-    app.run(debug=True, port=2900)
+    app.run(debug=True, port=1700)

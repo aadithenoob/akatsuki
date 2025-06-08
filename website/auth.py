@@ -10,7 +10,7 @@ auth = Blueprint("auth", __name__)
 DISCORD_CLIENT_ID = os.getenv("DISCORD_CLIENT_ID")
 DISCORD_CLIENT_SECRET = os.getenv("DISCORD_CLIENT_SECRET")
 DISCORD_REDIRECT_URI = os.getenv("DISCORD_REDIRECT_URI")
-DISCORD_SCOPE = "identify guilds"
+DISCORD_SCOPE = os.getenv("DISCORD_SCOPE")
 
 
 def discord_auth_url():
@@ -25,7 +25,8 @@ def login():
     if current_user.is_authenticated:
         return redirect(url_for("routes.home"))
 
-    return redirect(discord_auth_url())
+    auth_url = discord_auth_url()
+    return render_template("login.html", auth_url=auth_url)
 
 
 @auth.route("/discord/callback")
