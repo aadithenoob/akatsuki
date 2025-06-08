@@ -1,29 +1,11 @@
-{% extends "base.html" %} {% block title %}Login{% endblock %} 
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
 
 {% block content %}
-    <form method="POST">
-      <h3 align="center">LOGIN</h3>
-      <div class="form-group">
-        <label for="email">E-Mail Address</label>
-        <input
-          type="email"
-          class="form-control"
-          id="email"
-          name="email"
-          placeholder="Enter E-Mail"
-        />
-      </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input
-          type="password"
-          class="form-control"
-          id="password"
-          name="password"
-          placeholder="Enter Your Password"
-        />
-      </div>
-      <br />
-      <button type="submit" class="btn btn-primary">Login</button>
-    </form>
+  <div class="text-center mt-5">
+    <h3>Login with Discord</h3>
+    <a href="{{ url_for('auth.login') }}" class="btn btn-primary mt-3">
+      <i class="fab fa-discord"></i> Connect with Discord
+    </a>
+  </div>
 {% endblock %}
