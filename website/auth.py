@@ -14,7 +14,7 @@ DISCORD_SCOPE = os.getenv("DISCORD_SCOPE")
 
 
 def discord_auth_url():
-    return f"https://discord.com/api/oauth2/authorize?client_id={DISCORD_CLIENT_ID}&redirect_uri={DISCORD_REDIRECT_URI}&response_type=code&scope={DISCORD_SCOPE}"
+    return f"https://discord.com/oauth2/authorize?client_id={DISCORD_CLIENT_ID}&redirect_uri={DISCORD_REDIRECT_URI}&response_type=code&scope={DISCORD_SCOPE}"
 
 
 @auth.route("/login")
