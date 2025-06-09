@@ -21,7 +21,10 @@
     <title>{% block title %}{% endblock %}</title>
     <style>
       .akatsuki_title_glow {
-        text-shadow: 0 0 6px #ff4b5c, 0 0 10px #b41232, 0 0 10px #dc143c;
+        text-shadow: 
+        0 0 5px #ff4b5c, 
+        0 0 10px #b41232, 
+        0 0 50px #dc143c;
       }
 
       .akatsuki_title {
@@ -106,12 +109,25 @@
         color: #dc143c;
         text-shadow: 0 0 20px rgba(220, 20, 60, 0.6);
         animation: float 3s ease-in-out infinite;
-    }
+      }
 
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
-  }
+      .akatsuki_p_font {
+        font-family: "Orbitron", sans-serif;
+        font-weight: 400;
+        letter-spacing: 0.05rem;
+        color: #d1d5db;
+        font-size: 1.1rem;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
 
       body {
         font-family: "Orbitron", sans-serif;
