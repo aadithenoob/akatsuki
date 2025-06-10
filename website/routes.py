@@ -9,4 +9,4 @@ def home():
 
 @routes.route("/active_poll")
 def active_poll():
-    return render_template("home.html", user=current_user)
+    return render_template("active_poll.html", user=current_user)

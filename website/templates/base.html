@@ -23,8 +23,7 @@
       .akatsuki_title_glow {
         text-shadow: 
         0 0 5px #ff4b5c, 
-        0 0 10px #b41232, 
-        0 0 50px #dc143c;
+        0 0 20px #b41232;
       }
 
       .akatsuki_title {
@@ -33,11 +32,10 @@
         letter-spacing: 0.2em;
       }
 
-      .navbar_logo {
+      .navbar_title {
         font-family: "Orbitron", sans-serif;
         font-weight: 900;
-        letter-spacing: 0.01em;
-        font-size: 1.35rem;
+        letter-spacing: 0.1em;
       }
 
       .akatsuki_subtitle_glow {
@@ -50,6 +48,20 @@
         font-size: 1.3rem;
         font-weight: 400;
         letter-spacing: 0.2em;
+      }
+
+      .akatsuki_child_title {
+        font-family: "Orbitron", sans-serif;
+        color: #ffff;
+        font-weight: 900;
+        font-size: 40px;
+        letter-spacing: 0.001em;
+      }
+
+      .akatsuki_child_title_glow {
+        text-shadow: 
+        0 0 5px #ff4b5c, 
+        0 0 20px #b41232;
       }
 
       .akatsuki-btn {
@@ -75,8 +87,13 @@
       .akatsuki_logo {
         font-family: "Orbitron", sans-serif;
         font-weight: 900;
-        letter-spacing: 0.04em;
+        letter-spacing: 0.001em;
         font-size: 1.5rem;
+      }
+
+      .akatsuki_logo_glow {
+         text-shadow:
+        0 0 10px #b41232;
       }
 
       .discord_glow {
@@ -140,7 +157,7 @@
         <div class="flex items-center justify-between h-16">
           <a href="/">
             <span class="akatsuki_kanji">雲</span>
-            <span class="akatsuki_logo akatsuki_title_glow">AKATSUKI</span>
+            <span class="akatsuki_logo akatsuki_logo_glow">AKATSUKI</span>
           </a>
 
           <button
@@ -214,7 +231,7 @@
     </div>
     {% endif %} {% endwith %}
 
-    <div class="container mx-auto px-4 mt-8">
+    <div class="m-0 p-0">
       {% block content %}{% endblock %}
     </div>
 

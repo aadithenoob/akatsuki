@@ -1,4 +1,14 @@
-{% extends base.html %}
+{% extends "base.html" %}
 {% block title %}Akatsuki - Active Polls{% endblock %}
-
 {% block content %}
+<div class="min-h-screen flex flex-col px-4 md:px-20 lg:px-52 py-8">
+  <div class="flex items-center mb-8">
+    <i style="text-shadow: 0 0 38px #f56565"
+    class="fas fa-vote-yea text-red-500 text-3xl mr-4"></i>
+    <h1 class="text-4xl akatsuki_child_title font-black akatsuki_child_title_glow text-white">
+      Active Polls
+    </h1>
+  </div>
+  
+</div>
+{% endblock %}
